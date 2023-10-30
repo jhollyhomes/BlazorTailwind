@@ -1,0 +1,24 @@
+<button @onclick="Toggle" class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 transition-all text-sm">
+    @if (_darkMode)
+    {
+        <div>Light mode</div>
+    }
+    else
+    {
+        <div>Dark mode</div>
+    }
+</button>
+
+@code {
+
+    private bool _darkMode = false;
+
+    [Parameter]
+    public EventCallback<bool> OnDarkModeToggled { get; set; }
+
+    private void Toggle()
+    {
+        _darkMode = !_darkMode;
+        OnDarkModeToggled.InvokeAsync(_darkMode);
+    }
+}

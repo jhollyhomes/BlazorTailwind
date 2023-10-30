@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+
+<div class="@(_darkMode ? "dark" : "") h-full">
+
+    <div class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-5 h-full">
+
+        <ToggleDarkMode OnDarkModeToggled="@HandleDarkModeToggled"></ToggleDarkMode>
+
+        @Body
+
+    </div>
+</div>
+
+@code 
+{
+    private bool _darkMode = false;
+    
+    private void HandleDarkModeToggled(bool isDarkMode)
+    {
+        _darkMode = isDarkMode;        
+    }
+}
