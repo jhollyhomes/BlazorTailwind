@@ -2,10 +2,55 @@
 
 <PageTitle>Home</PageTitle>
 
-<div class="my-3">
-    Welcome to your new app.
+<div class="my-10">
+
+    <button type="button" @onclick="ChangeRed" class="py-2 px-5 bg-red-500 inline-flex justify-center items-center gap-2 rounded-md border border-transparent shadow-lg font-semibold text-white dark:text-black hover:bg-red-600 transition-all text-sm">
+        Red
+    </button>
+
+    <button type="button" @onclick="ChangeBlue" class="py-2 px-4 bg-blue-500 inline-flex justify-center items-center gap-2 rounded-md border border-transparent shadow-lg font-semibold text-white dark:text-black hover:bg-blue-600 transition-all text-sm">
+        Blue
+    </button>
+
+    <button type="button" @onclick="ChangeGreen" class="py-2 px-4 bg-green-500 inline-flex justify-center items-center gap-2 rounded-md border border-transparent shadow-lg font-semibold text-white dark:text-black hover:bg-green-600 transition-all text-sm">
+        Green
+    </button>
+
 </div>
 
-<div class="my-3 bg-gray-800 text-sm text-white rounded-md p-4 dark:bg-white dark:text-gray-800" role="alert">
-  <span class="font-bold">Dark</span> alert! You should check in on some of those fields below.
+<div class="p-6 max-w-sm mx-auto @bgColor rounded-xl shadow-lg flex items-center space-x-4">
+    <div class="mx-auto">
+        <div class="text-xl font-medium text-white dark:text-black">Select background colour</div>
+    </div>
+
 </div>
+
+@code {
+
+    private string bgColor = "bg-gray-800";
+
+    private string redColorValue = "bg-red-500";
+    private string blueColorValue = "bg-blue-500";
+    private string greenColorValue = "bg-green-500";
+
+    private void ChangeRed()
+    {
+        bgColor = redColorValue;
+
+        StateHasChanged();
+    }
+
+    private void ChangeBlue()
+    {
+        bgColor = blueColorValue;
+
+        StateHasChanged();
+    }
+
+    private void ChangeGreen()
+    {
+        bgColor = greenColorValue;
+
+        StateHasChanged();
+    }
+}
